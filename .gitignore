@@ -1,0 +1,8 @@
+.DS_Store
+/app/__pycache__/*
+*.pyc
+/.idea/*
+*.swp
+*.ipynb
+.pynb_checkpoints
+*.pytest_cache
