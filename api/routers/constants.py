@@ -3,8 +3,6 @@
 from .blogs import router as blogs_router
 
 # router configuration
-ROUTERS = [
-    blogs_router
-]
+ROUTERS = [blogs_router]
 PREFIXES = ["/blogs"]
 TAGS = [["blogs"]]

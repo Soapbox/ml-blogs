@@ -9,7 +9,7 @@ codeformatter() {
     echo "Code formatter results:"
     echo "###################################################"
 
-    python -m black --config api/pyproject.toml --check "/api/"
+    python -m black --config api/pyproject.toml --check "./api/"
 
     if [ $? -ne 0 ]; then
         echo "Code formatter check failed!"
