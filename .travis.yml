@@ -5,9 +5,8 @@ python:
     - 3.6
 
 before_install:
-    - docker-compose build
+    - docker build --tag ml-blogs .
 
 # Run project checker
 script:
-    - docker-compose run --rm -dT --name duckling duckling
-    - docker-compose run --rm -T api ./utils/check_project.sh
+    - docker run --rm -it ml-blogs ./utils/check-project.sh
