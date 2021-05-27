@@ -6,3 +6,4 @@
 *.ipynb
 .pynb_checkpoints
 *.pytest_cache
+.env
