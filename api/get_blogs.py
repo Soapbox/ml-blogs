@@ -47,13 +47,14 @@ def blog_data():
     while True:
         url = BASE_URL+str(i)
         try:
-            current_file = urllib.request.urlopen(url)
-        except: #pylint: disable=bare-except
+            req = urllib.request.Request(url, headers={'User-Agent': "Hypercontext Blog Bot"})
+            current_file = urllib.request.urlopen(req)
+        except Exception as e:
+            print(e)
             break
 
         data = current_file.read()
         current_file.close()
-
         parsedXML = ElementTree(fromstring(data))
         root = parsedXML.getroot()
         for node in root.iter("item"):
@@ -86,6 +87,7 @@ def bsoup_data(blog_link):
     Returns:
         The tuple of necessary information about the blog post.
     """
+    print('Fetching', blog_link)
     page = requests.get(blog_link)
     soup = BeautifulSoup(page.content, 'html.parser')
 
